@@ -1,0 +1,17 @@
+{
+  "name": "seven-bit-ascii-encoder",
+  "version": "0.1.0",
+  "description": "Encodes arbitrary bytes into 7-bit ASCII-safe representations for legacy transport constraints.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": "./src/index.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": [],
+  "license": "BSD-3-Clause",
+  "dependencies": {}
+}
