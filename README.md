@@ -31,3 +31,10 @@ The trade-off taken here: this is a character-wise escape encoding, not base64. 
 ## The awkward edge
 
 `decode` is strict on purpose. A `\` must always be followed by exactly two lowercase hex digits. `\0A` (uppercase), `\0` (truncated), or `\` (lone) all throw instead of being silently reinterpreted. If you are decoding data that may have passed through a system that rewrote casing or stripped trailing characters, normalise it before calling `decode` — the library will not guess for you.
+
+## Performance
+
+The window keeps a bounded buffer, so `push` is constant time and memory does not
+grow with the length of the stream. `peak` and `trough` are linear in the window
+size, which is the trade that keeps `push` cheap.
+
